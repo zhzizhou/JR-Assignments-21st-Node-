@@ -2,6 +2,10 @@ $spacing-unit:40px;
 $small-spacing:20px;
 $extra-small-spacing:10px;
 
+$large-width: 30%;
+$medium-width: 50% ;
+$small-width: 70%;
+
 * {
     padding: 0;
     margin: 0;
@@ -17,6 +21,14 @@ main {
     gap:$spacing-unit;
     padding: $spacing-unit 0;
 }
+.textline {
+    color: black;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 22px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
 
 .cards {
     display: flex;
@@ -28,8 +40,14 @@ main {
 
 .card {
     // span 4 columns
+    display: flex;
+    flex-direction: column;
+    background-color: aquamarine;
+    padding: 20px 10px;
     width: 30%;
     cursor: pointer;
+    align-items: center;
+    justify-content: center;
     transition: all 0.3s ease;
     &:hover {
         transform: translateY(-8px);
@@ -45,29 +63,27 @@ main {
 
 @media screen and (max-width: 1000px) {
     .card {
-        grid-column-end: span 6;
+        
     }
 }
 
 @media screen and (max-width:700px) {
     main {
-        grid-gap: $small-spacing;
-        .card {
-            grid-column-end: span 12;
+        gap: $small-spacing;
+        .cards {
+            gap: $small-spacing;
         }
     }
 }
 
 @media screen and (max-width:500px){
     main {
-        grid-gap: $extra-small-spacing;
-        grid-template-columns: $extra-small-spacing repeat(6, 1fr) $extra-small-spacing;
+        gap: $extra-small-spacing;
+        
         .cards {
-            grid-column: 2/ span 6;
-            grid-template-columns:repeat(6, 1fr) ;
-            .card {
-                grid-column-end: span 6;
-            }
+            gap: $extra-small-spacing;
+        
+            
         }
     }
 }
